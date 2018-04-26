@@ -12,7 +12,7 @@ export class User {
   constructor(authData) {
     this.email    = authData.email
     this.photoURL = authData.photoURL
-    this.roles    = { reader: true }
+    this.roles    = { reader: true };
   }
 }
 /*export  class User {
