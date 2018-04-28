@@ -11,7 +11,7 @@ export class UserService {
   }
 
   save(user: firebase.User) {
-    const afsUser = this.afs.doc<AppUser>('users/' + user.uid);
+    var afsUser = this.afs.doc<AppUser>('users/' + user.uid);
 
     let appUser: AppUser;
     appUser = {

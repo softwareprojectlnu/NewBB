@@ -13,12 +13,13 @@
     </mat-card>
   </div>
 </div-->
-
+<div *ngIf="!authService.isUserAnonymousLoggedIn">
 <button
   (click)= "loginByGo()"
   class="btn btn-primary">
   <i class="fa fa-google" aria-hidden="true"></i> Sign in
 </button>
+</div>
 <div *ngIf="authService.user  | async as user">
   <h2>Hi {{user.displayName}}</h2>
   <img [src]="user.photoURL" >

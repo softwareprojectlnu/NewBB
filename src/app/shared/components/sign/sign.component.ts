@@ -27,19 +27,7 @@ export class SignComponent implements OnInit {
   logout(){
     this.authService.signOut();
   }
-  // loginGoogle() {
-  //   const redirectUrl = this.route.snapshot.queryParamMap.get('about') || '/';
-  //   this.authService.loginGoogle().then((result) => {
-  //     this.router.navigateByUrl(redirectUrl);
-  //   });
-  // }
-  //  onSignIn(googleUser) {
-  //   var profile = googleUser.getBasicProfile();
-  //   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  //   console.log('Name: ' + profile.getName());
-  //   console.log('Image URL: ' + profile.getImageUrl());
-  //   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-  // }
+
   loginByGo() {
     this.authService.loginWithGo();
   }

@@ -13,6 +13,7 @@ import { Store } from '@ngrx/store';
 import {AppUser} from './app-user';
 import {UserService} from './user.service';
 import * as firebase from 'firebase';
+import {resolve} from 'q';
 
 
 
@@ -52,9 +53,18 @@ export class AuthService {
     // });
    }
    loginWithGo() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(
+      (result) => {
+        this.userService.save(result.user);
+        resolve(true);
+      }
+    );
    }
-
+  // loginGoogle():Promise<boolean>{
+  //   return new Promise(resolve => {
+  //     this.fbAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+  //   });
+  // }
 
   loginGoogle(){firebase.auth().signInWithPopup(this.provider).then(function(result) {
     // This gives you a Google Access Token. You can use it to access the Google API.
