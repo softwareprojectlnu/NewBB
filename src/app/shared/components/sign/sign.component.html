@@ -1,4 +1,4 @@
-<div style="display: flex; flex-direction: column; justify-content: center; align-content: center; position: relative">
+<!--div style="display: flex; flex-direction: column; justify-content: center; align-content: center; position: relative">
   <div  style="max-width: 600px">
     <mat-card>
       <mat-form-field class="mat-full-width">
@@ -12,4 +12,15 @@
 
     </mat-card>
   </div>
+</div-->
+
+<button
+  (click)= "loginByGo()"
+  class="btn btn-primary">
+  <i class="fa fa-google" aria-hidden="true"></i> Sign in
+</button>
+<div *ngIf="authService.user  | async as user">
+  <h2>Hi {{user.displayName}}</h2>
+  <img [src]="user.photoURL" >
+  <button (click)="logout()">Sign out</button>
 </div>

@@ -3,12 +3,17 @@ export interface Roles {
   author?: boolean;
   admin?:  boolean;
 }
+export enum Role {
+  USER,
+  MANAGER,
+  ADMIN
+}
 
 export class User {
   email:    string;
   photoURL: string;
   roles:    Roles;
-
+  role: string;
   constructor(authData) {
     this.email    = authData.email
     this.photoURL = authData.photoURL
